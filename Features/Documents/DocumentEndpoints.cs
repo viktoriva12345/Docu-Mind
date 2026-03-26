@@ -36,6 +36,10 @@
                     ExtractedTextPreview = preview
                 });
             }
+            catch (ArgumentException ex)
+            {
+                return Results.BadRequest(new { Error = ex.Message });
+            }
             catch (NotSupportedException ex)
             {
                 return Results.BadRequest(new { Error = ex.Message });
